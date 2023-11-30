@@ -1,7 +1,9 @@
 import 'package:e_commerce_app/cubit/change_password/change_password_cubit.dart';
 import 'package:e_commerce_app/cubit/get_catogery/cubit_get_catogery.dart';
+import 'package:e_commerce_app/cubit/get_home/get_home_cubit.dart';
 import 'package:e_commerce_app/cubit/login/login_cubit.dart';
 import 'package:e_commerce_app/cubit/register/register_cubit.dart';
+
 import 'package:e_commerce_app/network/dio_helper.dart';
 import 'package:e_commerce_app/views/my_app.dart';
 import 'package:flutter/material.dart';
@@ -23,6 +25,9 @@ void main() {
       BlocProvider(
         create: (BuildContext context) => RegisterCubit(),
       ),
+      BlocProvider(
+        create: (BuildContext context) => GetHomeCubit(),
+      )
     ], child: const MyApp()),
   );
 }

@@ -1,7 +1,7 @@
-import 'package:e_commerce_app/cubit/change_password/chane_pass_states.dart';
-import 'package:e_commerce_app/cubit/get_catogery/cubit_get_catogery.dart';
+import 'package:e_commerce_app/cubit/get_home/get_home_cubit.dart';
+
 import 'package:e_commerce_app/shared/constant.dart';
-import 'package:e_commerce_app/widgets/build_image_category.dart';
+
 import 'package:e_commerce_app/widgets/custom_app_bar.dart';
 import 'package:e_commerce_app/widgets/custom_row_text.dart';
 import 'package:e_commerce_app/widgets/custom_slider.dart';
@@ -19,10 +19,16 @@ class HomeView extends StatefulWidget {
 }
 
 class _HomeViewState extends State<HomeView> {
+  var banners;
   @override
   void initState() {
-    context.read<GetCatogeryCubit>().getCatogeryData(id: widget.productId);
+    context.read<GetHomeCubit>().getHomeData();
+    // GetHomeCubit.get(context).getHomeData();
+   
+
+    // context.read<GetCatogeryCubit>().getCatogeryData(id: widget.productId);
     super.initState();
+    // print('the banner from init state is: $banners');
   }
 
   @override
@@ -35,14 +41,15 @@ class _HomeViewState extends State<HomeView> {
             padding: const EdgeInsets.symmetric(vertical: 18, horizontal: 12),
             child: Column(children: [
               //slider
-              customSlider(),
+           customSlider(context),
+
               hSizedBox,
               buildRowText(
                   firstText: 'More Category',
                   secondClickableText: 'More Category'),
 
               hSizedBox,
-              buildCirculaCatogory(),
+              // buildCirculaCatogory(),
               hSizedBox,
               buildRowText(
                   firstText: 'FlashSale', secondClickableText: 'See more'),

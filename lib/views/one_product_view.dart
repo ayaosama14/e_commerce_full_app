@@ -28,9 +28,10 @@ class OneProductView extends StatelessWidget {
                     //         AsyncSnapshot<String> snapshot) {
                     //       return buildGridCatogory();
                     //     }),
-                    listOfCatogeryData == null
-                        ? const Center(child: CircularProgressIndicator())
-                        : buildGridCatogory()
+                    // listOfCatogeryData == null
+                    //     ? const Center(child: CircularProgressIndicator())
+                    // :
+                    buildGridCatogory()
                   ],
                 ),
               ),

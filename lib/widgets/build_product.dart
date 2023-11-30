@@ -16,10 +16,10 @@ buildGridCatogory() {
     child: BlocBuilder<GetCatogeryCubit, GetCatogeryState>(
       builder: (context, state) {
         return FutureBuilder(
-          future: null,
+          future: GetCatogeryCubit.get(context).getCatogeryData(id: 40),
           builder: (BuildContext context, AsyncSnapshot<dynamic> snap) {
             return ListView.separated(
-                scrollDirection: Axis.horizontal,
+                scrollDirection: Axis.vertical,
                 itemBuilder: (BuildContext context, int index) {
                   listOfCatogeryData =
                       GetCatogeryCubit.objectOfModel!.data.data;

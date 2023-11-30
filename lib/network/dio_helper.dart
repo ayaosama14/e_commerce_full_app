@@ -27,12 +27,12 @@ class DioEcommerce {
       "password": password
     }));
     // print('response is $response');
-    return response; 
+    return response;
   }
 
   static Future getCatogeryData({int? id}) async {
     response = await objectdio!
-        .get('https://student.valuxapps.com/api/products?category_id=$id');
+        .get('https://student.valuxapps.com/api/products?category_id=40');
 
     return response!.data;
 
