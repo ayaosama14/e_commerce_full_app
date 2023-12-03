@@ -1,4 +1,6 @@
 // ignore: must_be_immutable
+import 'dart:ui';
+
 import 'package:flutter/material.dart';
 
 // ignore: must_be_immutable
@@ -23,6 +25,7 @@ class CustomTextField extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return TextFormField(
+      selectionHeightStyle: BoxHeightStyle.tight,
       obscureText: isSecure!,
       onSaved: onSaved,
       controller: myController,

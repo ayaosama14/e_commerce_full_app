@@ -33,9 +33,9 @@ import 'package:flutter/material.dart';
             children: [
               InkWell(
                 onTap: () async {
-                  // GetCatogeryCubit.get(context).getCatogeryData(id: index);
+                   GetCatogeryCubit.get(context).getCatogeryData(id: index);
 
-                  // navigate(context, const OneProductView());
+                navigate(context, const OneProductView());
                 },
                 child: CircleAvatar(
                   backgroundColor: const Color.fromARGB(255, 161, 189, 183),

@@ -31,8 +31,9 @@ class DioEcommerce {
   }
 
   static Future getCatogeryData({int? id}) async {
+    await objectdio!.get('https://student.valuxapps.com/api/categories');
     response = await objectdio!
-        .get('https://student.valuxapps.com/api/products?category_id=40');
+        .get('https://student.valuxapps.com/api/products?category_id=$id');
 
     return response!.data;
 

@@ -20,12 +20,12 @@ class HomeView extends StatefulWidget {
 }
 
 class _HomeViewState extends State<HomeView> {
+  // ignore: prefer_typing_uninitialized_variables
   var banners;
   @override
   void initState() {
     context.read<GetHomeCubit>().getHomeData();
     // GetHomeCubit.get(context).getHomeData();
-   
 
     // context.read<GetCatogeryCubit>().getCatogeryData(id: widget.productId);
     super.initState();
@@ -36,13 +36,16 @@ class _HomeViewState extends State<HomeView> {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
-        appBar: customAppBar(),
+        // appBar:
         body: SingleChildScrollView(
           child: Padding(
             padding: const EdgeInsets.symmetric(vertical: 18, horizontal: 12),
             child: Column(children: [
+              //appbar
+              customAppBar(),
+              hsSizedBox,
               //slider
-           customSlider(context),
+              customSlider(context),
 
               hSizedBox,
               buildRowText(
@@ -50,7 +53,7 @@ class _HomeViewState extends State<HomeView> {
                   secondClickableText: 'More Category'),
 
               hSizedBox,
-               buildCirculaCatogory(),
+              buildCirculaCatogory(),
               hSizedBox,
               buildRowText(
                   firstText: 'FlashSale', secondClickableText: 'See more'),

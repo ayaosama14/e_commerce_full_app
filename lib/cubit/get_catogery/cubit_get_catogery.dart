@@ -15,11 +15,11 @@ class GetCatogeryCubit extends Cubit<GetCatogeryState> {
       emit(GetCatogerySussessState());
 
       objectOfModel = CatogeryDataModel.fromJson(value!);
-      // print('model status is $value');
-      // print('model data is ${objectOfModel!.data.data[0]}');
+      // print('model status is : $value');
+      // print('cubit model data is : ${objectOfModel!.data.data}');
     }).catchError((e) {
       emit(GetCatogeryfailerState());
-      print('getCatogery error :${e.toString()}');
+      // print('getCatogery error :${e.toString()}');
     });
   }
 

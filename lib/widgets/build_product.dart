@@ -1,44 +1,34 @@
 import 'package:e_commerce_app/cubit/get_catogery/cubit_get_catogery.dart';
-import 'package:e_commerce_app/cubit/get_catogery/cubit_get_catogery_state.dart';
 import 'package:e_commerce_app/model/date_model.dart';
 import 'package:e_commerce_app/shared/constant.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 
 //get product apis
 
 List<Datum>? listOfCatogeryData;
 Datum? oneDatumItem;
 
-buildGridCatogory() {
+buildGridCatogory(context) {
   return SizedBox(
-    height: 290,
-    child: BlocBuilder<GetCatogeryCubit, GetCatogeryState>(
-      builder: (context, state) {
-        return FutureBuilder(
-          future: GetCatogeryCubit.get(context).getCatogeryData(id: 40),
-          builder: (BuildContext context, AsyncSnapshot<dynamic> snap) {
-            return ListView.separated(
-                scrollDirection: Axis.vertical,
-                itemBuilder: (BuildContext context, int index) {
-                  listOfCatogeryData =
-                      GetCatogeryCubit.objectOfModel!.data.data;
-
-                  return listOfCatogeryData == null
-                      ? const Center(
-                          child: CircularProgressIndicator(
-                              value: 20.0, backgroundColor: Colors.blueAccent),
-                        )
-                      : buildOneProductItem(listOfCatogeryData![index]);
-                },
-                separatorBuilder: (BuildContext context, int item) => wSizedBox,
-                itemCount: listOfCatogeryData == null
-                    ? 0
-                    : listOfCatogeryData!.length);
-          },
-        );
-      },
-    ),
+    height: MediaQuery.of(context).size.height,
+    child: GridView.builder(
+        scrollDirection: Axis.vertical,
+        gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+          crossAxisCount: 2, // number of items in each row
+          mainAxisSpacing: 1.6, // spacing between rows
+          crossAxisSpacing: 1.0, // spacing between columns
+        ),
+        itemCount: listOfCatogeryData!.length,
+        itemBuilder: (BuildContext _, int index) {
+          listOfCatogeryData = GetCatogeryCubit.objectOfModel!.data.data;
+          // print(' listOfCatogeryData : $listOfCatogeryData');
+          return listOfCatogeryData == null
+              ? const Center(
+                  child: CircularProgressIndicator(
+                      value: 20.0, backgroundColor: Colors.blueAccent),
+                )
+              : buildOneProductItem(listOfCatogeryData![index]);
+        }),
   );
 }
 
@@ -101,26 +91,3 @@ buildOneProductItem(Datum? oneDatumItem) {
     ),
   );
 }
-
-
-
-
-
-  //  return SizedBox(
-  //   // height: 500,
-  //   width = double.infinity,
-  //   child = GridView.builder(
-  //       itemCount: 2,
-  //       padding: const EdgeInsets.all(6),
-  //       shrinkWrap: false,
-  //       scrollDirection: Axis.vertical,
-  //       gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-  //         crossAxisCount: 2,
-  //         childAspectRatio: 0.5,
-  //       ),
-  //       itemBuilder: (BuildContext context, int index) {
-  //         listOfCatogeryData = GetCatogeryCubit.objectOfModel!.data.data;
-
-  //         return buildOneProductItem(listOfCatogeryData![index]);
-  //       }),
-  // );

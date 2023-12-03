@@ -14,7 +14,7 @@ Widget hSizedBox = const SizedBox(
 );
 
 Widget hsSizedBox = const SizedBox(
-  height: 6,
+  height: 5,
 );
 
 Widget wSizedBox = const SizedBox(

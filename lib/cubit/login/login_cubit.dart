@@ -11,11 +11,11 @@ class LoginCubit extends Cubit<LoginStates> {
 
   postLoginData(String email, String password) {
     DioEcommerce.postLoginData(email, password).then((value) {
-      print(value);
+      // print(value);
       responseloginValue = value;
       emit(PostLoginDataSucessState());
     }).catchError((error) {
-      print('error from postLoginData is: $error');
+      // print('error from postLoginData is: $error');
       emit(PostLoginDataFailerState());
     });
   }

@@ -10,11 +10,11 @@ class RegisterCubit extends Cubit<RegisterStates> {
   Response? responseRegisterValue;
   postRegisterData(String name, String phone, String email, String password) {
     DioEcommerce.postRegisterData(name, phone, email, password).then((value) {
-      print(value);
+      // print(value);
       responseRegisterValue = value;
       emit(PostRegisterSucessState());
     }).catchError((error) {
-      print('error from postLoginData is: $error');
+      // print('error from postLoginData is: $error');
       emit(PostRegisterFailerState());
     });
   }

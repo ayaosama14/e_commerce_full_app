@@ -15,7 +15,7 @@ class OneProductView extends StatelessWidget {
       builder: (context, state) {
         return SafeArea(
           child: Scaffold(
-            appBar: AppBar(),
+            appBar: AppBar(title: const Text('favourte product')),
             body: SingleChildScrollView(
               child: Padding(
                 padding: const EdgeInsets.all(12),
@@ -31,7 +31,7 @@ class OneProductView extends StatelessWidget {
                     // listOfCatogeryData == null
                     //     ? const Center(child: CircularProgressIndicator())
                     // :
-                    buildGridCatogory()
+                    buildGridCatogory(context)
                   ],
                 ),
               ),
