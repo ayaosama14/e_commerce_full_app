@@ -1,6 +1,7 @@
 import 'package:e_commerce_app/cubit/get_home/get_home_cubit.dart';
 
 import 'package:e_commerce_app/shared/constant.dart';
+import 'package:e_commerce_app/widgets/build_image_category.dart';
 
 import 'package:e_commerce_app/widgets/custom_app_bar.dart';
 import 'package:e_commerce_app/widgets/custom_row_text.dart';
@@ -49,7 +50,7 @@ class _HomeViewState extends State<HomeView> {
                   secondClickableText: 'More Category'),
 
               hSizedBox,
-              // buildCirculaCatogory(),
+               buildCirculaCatogory(),
               hSizedBox,
               buildRowText(
                   firstText: 'FlashSale', secondClickableText: 'See more'),
