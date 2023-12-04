@@ -21,18 +21,31 @@ class OneProductView extends StatelessWidget {
                 padding: const EdgeInsets.all(12),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    // FutureBuilder(
-                    //     future: GetCatogeryCubit.returnObjectOfModel(),
-                    //     builder: (BuildContext context,
-                    //         AsyncSnapshot<String> snapshot) {
-                    //       return buildGridCatogory();
-                    //     }),
-                    // listOfCatogeryData == null
-                    //     ? const Center(child: CircularProgressIndicator())
-                    // :
-                    buildGridCatogory(context)
-                  ],
+                  children: 
+                  
+              
+
+
+                  [
+                    
+               
+                if (State is LoadingCatogeryState)
+           
+
+
+         
+
+            const SizedBox(
+                  height: 300,
+                  child: Center(
+                    child: CircularProgressIndicator(
+                        value: 20.0, backgroundColor: Colors.blueAccent),
+                  ),
+                ),
+
+
+
+                   buildGridCatogory(context),],
                 ),
               ),
             ),

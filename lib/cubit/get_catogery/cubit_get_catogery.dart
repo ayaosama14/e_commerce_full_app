@@ -11,6 +11,8 @@ class GetCatogeryCubit extends Cubit<GetCatogeryState> {
   static CatogeryDataModel? objectOfModel;
 
   Future getCatogeryData({required int id}) async {
+    emit(LoadingCatogeryState());
+
     await DioEcommerce.getCatogeryData(id: id).then((value) {
       emit(GetCatogerySussessState());
 

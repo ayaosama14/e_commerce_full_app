@@ -15,26 +15,22 @@ buildGridCatogory(context) {
         scrollDirection: Axis.vertical,
         gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
           crossAxisCount: 2, // number of items in each row
-          mainAxisSpacing: 1.6, // spacing between rows
-          crossAxisSpacing: 1.0, // spacing between columns
+          mainAxisSpacing: 2.1, // spacing between rows
+          crossAxisSpacing: 1.6, // spacing between columns
         ),
-        itemCount: listOfCatogeryData!.length,
+        itemCount: listOfCatogeryData == null ? 0 : listOfCatogeryData!.length,
         itemBuilder: (BuildContext _, int index) {
           listOfCatogeryData = GetCatogeryCubit.objectOfModel!.data.data;
           // print(' listOfCatogeryData : $listOfCatogeryData');
-          return listOfCatogeryData == null
-              ? const Center(
-                  child: CircularProgressIndicator(
-                      value: 20.0, backgroundColor: Colors.blueAccent),
-                )
-              : buildOneProductItem(listOfCatogeryData![index]);
+          return
+               buildOneProductItem(listOfCatogeryData![index]);
         }),
   );
 }
 
 buildOneProductItem(Datum? oneDatumItem) {
   return Container(
-    height: 280,
+    height: 380,
     width: 160,
     decoration: BoxDecoration(
       color: const Color.fromARGB(255, 229, 222, 222),
