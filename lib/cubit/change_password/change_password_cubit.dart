@@ -1,6 +1,6 @@
-import 'package:e_commerce_app/cubit/change_password/chane_pass_states.dart';
-
 import 'package:flutter_bloc/flutter_bloc.dart';
+
+import 'package:e_commerce_app/cubit/change_password/chane_pass_states.dart';
 
 class ChangePasswordCubit extends Cubit<States> {
   ChangePasswordCubit() : super(InitState());

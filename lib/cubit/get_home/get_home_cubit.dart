@@ -9,17 +9,17 @@ class GetHomeCubit extends Cubit<GetHomeStates> {
   static GetHomeCubit get(context) => BlocProvider.of(context);
   Future getHomeData() async {
     emit(LoadingState());
-    Response response = await HomeRepo.getHomeData();
+    Response? response = await HomeRepo.getHomeData();
     // print('cubit response $response');
-    if (response.data['status'] == true) {
+    if (response?.data['status'] == true) {
       // print('cubit response status : ${response.data['status']}');
       // print('cubit response.data : ${response.data}');
       emit(HomeSucessState());
-      banner = response.data['data']['banners'];
+      banner = response?.data['data']['banners'];
       // print('the cubit banners is : $banner');
       return response;
     }
-    if (response.data['status'] == false) {
+    if (response?.data['status'] == false) {
       emit(HomeFailerState());
       return null;
     }
