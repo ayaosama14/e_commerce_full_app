@@ -5,7 +5,7 @@ import 'package:e_commerce_app/shared/navigator.dart';
 import 'package:e_commerce_app/views/one_product_view.dart';
 import 'package:flutter/material.dart';
 
-   buildCirculaCatogory() {
+buildCirculaCatogory() {
   List<String> listOfImageCatogery = [
     AssetManager.manBag,
     AssetManager.shirt,
@@ -33,27 +33,28 @@ import 'package:flutter/material.dart';
             children: [
               InkWell(
                 onTap: () async {
-                   GetCatogeryCubit.get(context).getCatogeryData(id: index);
+                  GetCatogeryCubit.get(context).getCatogeryData(id: index);
 
-                navigate(context, const OneProductView());
+                  navigate(context, const OneProductView());
                 },
                 child: CircleAvatar(
                   backgroundColor: const Color.fromARGB(255, 161, 189, 183),
                   radius: 38,
                   child: CircleAvatar(
-                      backgroundColor: Colors.white,
-                      radius: 36,
-                      child: Container(
-                        height: 50,
-                        width: 50,
-                        decoration: BoxDecoration(
-                          color: Colors.white,
-                          image: DecorationImage(
-                            fit: BoxFit.cover,
-                            image: AssetImage(listOfImageCatogery[index]),
-                          ),
+                    backgroundColor: Colors.white,
+                    radius: 36,
+                    child: Container(
+                      height: 50,
+                      width: 50,
+                      decoration: BoxDecoration(
+                        color: Colors.white,
+                        image: DecorationImage(
+                          fit: BoxFit.cover,
+                          image: AssetImage(listOfImageCatogery[index]),
                         ),
-                      )),
+                      ),
+                    ),
+                  ),
                 ),
               ),
               hSizedBox,
