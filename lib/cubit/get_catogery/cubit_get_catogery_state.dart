@@ -12,3 +12,5 @@ class GetCatogerySussessState extends GetCatogeryState {
 }
 
 class GetCatogeryfailerState extends GetCatogeryState {}
+
+class GetCatogeryfailerNetworkState extends GetCatogeryState {}

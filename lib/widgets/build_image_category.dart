@@ -1,4 +1,3 @@
-import 'package:e_commerce_app/cubit/get_catogery/cubit_get_catogery.dart';
 import 'package:e_commerce_app/scr/core/utilits/assets_manger.dart';
 import 'package:e_commerce_app/shared/constant.dart';
 import 'package:e_commerce_app/shared/navigator.dart';
@@ -28,14 +27,17 @@ buildCirculaCatogory() {
     height: 140,
     child: ListView.separated(
         scrollDirection: Axis.horizontal,
-        itemBuilder: (BuildContext context, int index) {
+        itemBuilder: (BuildContext context, index) {
           return Column(
             children: [
               InkWell(
                 onTap: () async {
-                  GetCatogeryCubit.get(context).getCatogeryData(id: index);
+                  //
 
-                  navigate(context, const OneProductView());
+                  navigate(
+                    context,
+                    OneProductView(index: index),
+                  );
                 },
                 child: CircleAvatar(
                   backgroundColor: const Color.fromARGB(255, 161, 189, 183),

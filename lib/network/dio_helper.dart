@@ -36,7 +36,7 @@ class DioEcommerce {
     response = await objectdio!
         .get('https://student.valuxapps.com/api/products?category_id=$id');
 
-    return CatogeryDataModel.fromJson(response?.data['data']);
+    return CatogeryDataModel.fromJson(response?.data);
 
     // return response;
   }

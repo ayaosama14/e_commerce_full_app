@@ -1,6 +1,7 @@
 import 'package:e_commerce_app/cubit/get_catogery/cubit_get_catogery.dart';
 import 'package:e_commerce_app/model/date_model.dart';
 import 'package:e_commerce_app/shared/constant.dart';
+import 'package:e_commerce_app/views/details_product.dart';
 import 'package:e_commerce_app/views/name_of_product.dart';
 import 'package:flutter/material.dart';
 
@@ -9,20 +10,25 @@ import 'package:flutter/material.dart';
 List<Datum>? listOfCatogeryData;
 Datum? oneDatumItem;
 
-buildGridCatogory(context) {
+buildGridCatogory(BuildContext context, CatogeryDataModel model) {
   return SizedBox(
-    height: MediaQuery.of(context).size.height,
+    // height: MediaQuery.of(context).size.height,
     child: GridView.builder(
+        // physics: const NeverScrollableScrollPhysics(),
         scrollDirection: Axis.vertical,
-        gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+        shrinkWrap: true,
+        gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
           crossAxisCount: 2, // number of items in each row
-          mainAxisSpacing: 2.1, // spacing between rows
-          crossAxisSpacing: 1.6, // spacing between columns
+          mainAxisSpacing: 7, // spacing between rows
+          crossAxisSpacing: 6,
+          // spacing between columns
+          childAspectRatio: MediaQuery.of(context).size.width /
+              (MediaQuery.of(context).size.height / 1.5),
         ),
-        itemCount: listOfCatogeryData == null ? 0 : listOfCatogeryData!.length,
+        itemCount: listOfCatogeryData == null ? 18 : listOfCatogeryData!.length,
         itemBuilder: (BuildContext _, int index) {
-          listOfCatogeryData = GetCatogeryCubit.objectOfModel!.data.data;
-          // print(' listOfCatogeryData : $listOfCatogeryData');
+          listOfCatogeryData = model.data.data as List<Datum>?;
+
           return buildOneProductItem(listOfCatogeryData![index], context);
         }),
   );
@@ -31,72 +37,71 @@ buildGridCatogory(context) {
 buildOneProductItem(Datum? oneDatumItem, context) {
   return InkWell(
     onTap: () {
-      Navigator.of(context).push(
-        MaterialPageRoute(
-          builder: (BuildContext context) {
-            return NameOfProduct(
-              
-                appBarTitle: oneDatumItem.name,
-                productPrice: oneDatumItem.price as String);
-          },
-        ),
-      );
+      // Navigator.of(context).push(
+      //   MaterialPageRoute(
+      //     builder: (BuildContext context) {
+      //       return NameOfProduct(
+      //           appBarTitle: oneDatumItem.name,
+      //           productPrice: oneDatumItem.price as String);
+      //     },
+      //   ),
+      // );
     },
     child: Container(
-      height: 380,
+      height: 400,
       width: 160,
       decoration: BoxDecoration(
         color: const Color.fromARGB(255, 229, 222, 222),
         borderRadius: BorderRadius.circular(12.0),
       ),
       child: Padding(
-        padding: const EdgeInsets.all(10),
+        padding: const EdgeInsets.all(6),
         child: Column(
-            mainAxisAlignment: MainAxisAlignment.start,
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Container(
-                height: 140,
-                width: 140,
-                decoration: BoxDecoration(
-                  image: DecorationImage(
-                    fit: BoxFit.cover,
-                    image: NetworkImage(oneDatumItem!.image),
-                  ),
+          mainAxisAlignment: MainAxisAlignment.start,
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Container(
+              height: 130,
+              width: 130,
+              decoration: BoxDecoration(
+                image: DecorationImage(
+                  fit: BoxFit.cover,
+                  image: NetworkImage(oneDatumItem!.image),
                 ),
               ),
-              Expanded(
-                child: Text(oneDatumItem.name,
-                    maxLines: 2,
-                    overflow: TextOverflow.ellipsis,
-                    style: thinTextStyle,
-                    textHeightBehavior: const TextHeightBehavior(
-                      applyHeightToFirstAscent: true,
-                    ),
-                    textDirection: TextDirection.rtl),
-              ),
-              hsSizedBox,
-              Text(
-                '${oneDatumItem.price}',
-                style: thinColorTextStyle,
-                textAlign: TextAlign.start,
-              ),
-              hsSizedBox,
-              Row(
-                mainAxisAlignment: MainAxisAlignment.start,
-                children: [
-                  Text(
-                    '${oneDatumItem.oldPrice}',
-                    style: thinTextStyle,
-                  ),
-                  wsSizedBox,
-                  Text(
-                    '${oneDatumItem.discount}',
-                    style: thinRedColorTextStyle,
-                  ),
-                ],
-              )
-            ]),
+            ),
+            hsSizedBox,
+            Text(oneDatumItem.name,
+                maxLines: 2,
+                overflow: TextOverflow.ellipsis,
+                style: thinTextStyle,
+                textHeightBehavior: const TextHeightBehavior(
+                  applyHeightToFirstAscent: true,
+                ),
+                textDirection: TextDirection.rtl),
+            hsSizedBox,
+            Text(
+              '${oneDatumItem.price}',
+              style: thinColorTextStyle,
+              textAlign: TextAlign.start,
+            ),
+            hsSizedBox,
+            Row(
+              mainAxisAlignment: MainAxisAlignment.start,
+              children: [
+                Text(
+                  '${oneDatumItem.oldPrice}',
+                  style: thinTextStyle,
+                ),
+                wsSizedBox,
+                Text(
+                  ' ${oneDatumItem.discount}%',
+                  style: thinRedColorTextStyle,
+                ),
+              ],
+            ),
+          ],
+        ),
       ),
     ),
   );
