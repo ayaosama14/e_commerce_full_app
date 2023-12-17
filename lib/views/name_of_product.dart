@@ -106,11 +106,11 @@ class _NameOfProductState extends State<NameOfProduct> {
                         const Text('Shown:'),
                         Column(
                           children: [
-                            Text('data'),
+                            const Text('data'),
                             hsSizedBox,
-                            Text('data'),
+                            const Text('data'),
                             hsSizedBox,
-                            Text('data'),
+                            const Text('data'),
                             hsSizedBox,
                           ],
                         )

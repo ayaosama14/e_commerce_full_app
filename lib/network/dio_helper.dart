@@ -1,4 +1,5 @@
 import 'package:dio/dio.dart';
+import 'package:e_commerce_app/model/date_model.dart';
 
 class DioEcommerce {
   static Dio? objectdio;
@@ -31,11 +32,11 @@ class DioEcommerce {
   }
 
   static Future getCatogeryData({int? id}) async {
-    await objectdio!.get('https://student.valuxapps.com/api/categories');
+    // await objectdio!.get('https://student.valuxapps.com/api/categories');
     response = await objectdio!
         .get('https://student.valuxapps.com/api/products?category_id=$id');
 
-    return response!.data;
+    return CatogeryDataModel.fromJson(response?.data['data']);
 
     // return response;
   }

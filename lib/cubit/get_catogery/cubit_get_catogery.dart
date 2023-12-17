@@ -13,10 +13,10 @@ class GetCatogeryCubit extends Cubit<GetCatogeryState> {
   Future getCatogeryData({required int id}) async {
     emit(LoadingCatogeryState());
 
-    await DioEcommerce.getCatogeryData(id: id).then((value) {
-      emit(GetCatogerySussessState());
+    await DioEcommerce.getCatogeryData(id: id).then((objectOfModel) {
+      emit(GetCatogerySussessState(objectOfModel));
 
-      objectOfModel = CatogeryDataModel.fromJson(value!);
+      
       // print('model status is : $value');
       // print('cubit model data is : ${objectOfModel!.data.data}');
     }).catchError((e) {
@@ -25,12 +25,12 @@ class GetCatogeryCubit extends Cubit<GetCatogeryState> {
     });
   }
 
-  static Future<String> returnObjectOfModel() async {
-    if (objectOfModel != null) {
-      // print("returning the model");
-      return objectOfModel!.message.toString();
-    } else {
-      return '';
-    }
-  }
+  // static Future<String> returnObjectOfModel() async {
+  //   if (objectOfModel != null) {
+  //     // print("returning the model");
+  //     return objectOfModel!.message.toString();
+  //   } else {
+  //     return '';
+  //   }
+  // }
 }
