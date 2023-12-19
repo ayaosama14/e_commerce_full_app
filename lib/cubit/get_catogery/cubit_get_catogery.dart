@@ -21,8 +21,10 @@ class GetCatogeryCubit extends Cubit<GetCatogeryState> {
           GetCatogerySussessState(objectOfModel),
         );
       }
+      // ignore: unused_catch_clause
     } on SocketException catch (e) {
       emit(GetCatogeryfailerNetworkState());
+      // ignore: unused_catch_clause
     } on Exception catch (e) {
       emit(GetCatogeryfailerState());
     }

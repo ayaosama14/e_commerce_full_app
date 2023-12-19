@@ -11,6 +11,7 @@ class HomeRepo {
       // print('resopnse from dio is$response');
 
       return response;
+    // ignore: unused_catch_clause
     } on Exception catch (e) {
       return null;
     }

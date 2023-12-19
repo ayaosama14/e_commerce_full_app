@@ -1,7 +1,5 @@
-import 'package:e_commerce_app/cubit/get_catogery/cubit_get_catogery.dart';
 import 'package:e_commerce_app/model/date_model.dart';
 import 'package:e_commerce_app/shared/constant.dart';
-import 'package:e_commerce_app/views/details_product.dart';
 import 'package:e_commerce_app/views/name_of_product.dart';
 import 'package:flutter/material.dart';
 
@@ -37,15 +35,20 @@ buildGridCatogory(BuildContext context, CatogeryDataModel model) {
 buildOneProductItem(Datum? oneDatumItem, context) {
   return InkWell(
     onTap: () {
-      // Navigator.of(context).push(
-      //   MaterialPageRoute(
-      //     builder: (BuildContext context) {
-      //       return NameOfProduct(
-      //           appBarTitle: oneDatumItem.name,
-      //           productPrice: oneDatumItem.price as String);
-      //     },
-      //   ),
-      // );
+      Navigator.of(context).push(
+        MaterialPageRoute(
+          builder: (BuildContext context) {
+            return ProductDetails(
+              appBarTitle: oneDatumItem.name,
+              productPrice: oneDatumItem.price,
+              listOfproductImage: oneDatumItem.images,
+              description: oneDatumItem.description,
+              inFavorites: oneDatumItem.inFavorites,
+              inCart: oneDatumItem.inCart,
+            );
+          },
+        ),
+      );
     },
     child: Container(
       height: 400,
