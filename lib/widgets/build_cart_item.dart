@@ -1,9 +1,9 @@
+import 'package:e_commerce_app/cubit/counter_cart/cubit_counter_cart.dart';
 import 'package:e_commerce_app/shared/constant.dart';
-
 
 import 'package:flutter/material.dart';
 
-Widget buildCartItem(nameOfProduct, priceOfProduct, imageOfProduct) {
+Widget buildCartItem(nameOfProduct, priceOfProduct, imageOfProduct, context) {
   return Container(
     decoration: BoxDecoration(
       border: Border.all(
@@ -61,76 +61,78 @@ Widget buildCartItem(nameOfProduct, priceOfProduct, imageOfProduct) {
             ),
             hSizedBox,
             hSizedBox,
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                Container(
-                  child: Text(
+            Expanded(
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Text(
                     '$priceOfProduct',
                     style: boldTextStyle,
                     maxLines: 2,
                   ),
-                ),
-                // wSizedBox,
-                // wSizedBox,
-                // wSizedBox,
-                // wSizedBox,
-                // wSizedBox,
-                // wSizedBox,
-                // wSizedBox,
-                Container(
-                  width: 114,
-                  decoration: BoxDecoration(
-                    border: Border.all(
-                      color: Colors.blueAccent,
-                      width: 1,
+                  wSizedBox,
+                  wSizedBox,
+                  wSizedBox,
+                  wSizedBox,
+                  wSizedBox,
+                  wSizedBox,
+                  wSizedBox,
+                  Container(
+                    width: 117,
+                    decoration: BoxDecoration(
+                      border: Border.all(
+                        color: Colors.blueAccent,
+                        width: 1,
+                      ),
+                      borderRadius: BorderRadius.circular(8),
                     ),
-                    borderRadius: BorderRadius.circular(8),
-                  ),
-                  child: Row(
-                    children: [
-                      Container(
-                        height: 36,
-                        width: 38,
-                        decoration: BoxDecoration(
-                          shape: BoxShape.rectangle,
-                          color: greyColor,
+                    child: Row(
+                      children: [
+                        Container(
+                          height: 36,
+                          width: 38,
+                          decoration: const BoxDecoration(
+                            shape: BoxShape.rectangle,
+                            color: greyColor,
+                          ),
+                          alignment: Alignment.topCenter,
+                          child: IconButton(
+                            onPressed: () {
+                              CounterCartCubit.get(context).counterMinus(1);
+                            },
+                            iconSize: 26,
+                            icon: const Icon(Icons.minimize_sharp),
+                          ),
                         ),
-                        alignment: Alignment.topCenter,
-                        child: IconButton(
-                          onPressed: () {},
-                          iconSize: 26,
-                          icon: const Icon(Icons.minimize_sharp),
+                        SizedBox(
+                          width: 38,
+                          child: Text(
+                            '${CounterCartCubit.get(context).counter}',
+                            textAlign: TextAlign.center,
+                            style: boldTextStyle,
+                          ),
                         ),
-                      ),
-                      wsSizedBox,
-                      SizedBox(
-                        width: 24,
-                        child: Text(
-                          '2',
-                          textAlign: TextAlign.center,
-                          style: boldTextStyle,
+                        Container(
+                          height: 36,
+                          width: 38,
+                          decoration: const BoxDecoration(
+                            shape: BoxShape.rectangle,
+                            color: greyColor,
+                          ),
+                          alignment: Alignment.topCenter,
+                          child: IconButton(
+                            onPressed: () {
+                              CounterCartCubit.get(context).counterPlus(1);
+                            },
+                            iconSize: 26,
+                            icon: const Icon(Icons.add),
+                          ),
                         ),
-                      ),
-                      wsSizedBox,
-                      Container(
-                        height: 36,
-                        width: 38,
-                        decoration: BoxDecoration(
-                          shape: BoxShape.rectangle,
-                          color: greyColor,
-                        ),
-                        alignment: Alignment.topCenter,
-                        child: IconButton(
-                          onPressed: () {},
-                          iconSize: 26,
-                          icon: const Icon(Icons.add),
-                        ),
-                      ),
-                    ],
-                  ),
-                )
-              ],
+                      ],
+                    ),
+                  )
+                ],
+              ),
             )
           ],
         )

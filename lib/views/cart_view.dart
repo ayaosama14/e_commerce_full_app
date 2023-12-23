@@ -23,27 +23,27 @@ class CartView extends StatefulWidget {
 class _CartViewState extends State<CartView> {
   @override
   Widget build(BuildContext context) {
-    // return BlocBuilder<CounterCartCubit, CounterCartStates>(
-    //   builder: (context, state) {
-    return SafeArea(
-      child: Scaffold(
-        appBar: AppBar(
-          title: const Text(' your cart '),
-          backgroundColor: const Color.fromARGB(255, 231, 228, 228),
-        ),
-        body: Padding(
-          padding: const EdgeInsets.all(8),
-          child: Column(
-            children: [
-              buildCartItem(widget.nameOfProduct, widget.priceOfProduct,
-                  widget.imageOfProduct),
-              const Divider(),
-            ],
+    return BlocBuilder<CounterCartCubit, CounterCartStates>(
+      builder: (context, state) {
+        return SafeArea(
+          child: Scaffold(
+            appBar: AppBar(
+              title: const Text(' your cart '),
+              backgroundColor: const Color.fromARGB(255, 231, 228, 228),
+            ),
+            body: Padding(
+              padding: const EdgeInsets.all(8),
+              child: Column(
+                children: [
+                  buildCartItem(widget.nameOfProduct, widget.priceOfProduct,
+                      widget.imageOfProduct, context),
+                  const Divider(),
+                ],
+              ),
+            ),
           ),
-        ),
-      ),
+        );
+      },
     );
-    //   },
-    // );
   }
 }
