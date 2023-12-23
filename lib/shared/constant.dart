@@ -7,7 +7,7 @@ TextStyle thinTextStyle =
     const TextStyle(fontSize: 16, color: Colors.black, height: 1.3);
 TextStyle boldColorTextStyle =
     const TextStyle(fontSize: 19, color: Colors.blue);
-    TextStyle vboldColorTextStyle =
+TextStyle vboldColorTextStyle =
     const TextStyle(fontSize: 24, color: Colors.blue);
 TextStyle thinColorTextStyle =
     const TextStyle(fontSize: 16, color: Colors.blue);
@@ -27,4 +27,4 @@ Widget wSizedBox = const SizedBox(
 Widget wsSizedBox = const SizedBox(
   width: 6,
 );
-final greyColor = Color.fromARGB(77, 194, 173, 173);
+const greyColor = Color.fromARGB(77, 194, 173, 173);

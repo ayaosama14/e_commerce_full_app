@@ -1,7 +1,12 @@
 import 'dart:core';
 
-import 'package:carousel_slider/carousel_slider.dart';
 import 'package:e_commerce_app/shared/constant.dart';
+import 'package:e_commerce_app/shared/navigator.dart';
+import 'package:e_commerce_app/views/cart_view.dart';
+import 'package:e_commerce_app/widgets/build_color__of_product.dart';
+import 'package:e_commerce_app/widgets/build_size_of_product.dart';
+import 'package:e_commerce_app/widgets/carouselslider_product_details.dart';
+import 'package:e_commerce_app/widgets/custom_button.dart';
 
 import 'package:flutter/material.dart';
 
@@ -14,18 +19,7 @@ class ProductDetails extends StatefulWidget {
   String description;
   bool inFavorites;
   bool inCart;
-  List listOfSizes = [5, 6.5, 7, 7.5, 8, 8.5, 9, 9.5, 10, 11];
-  List<Color> listOfColors = [
-    Colors.red,
-    Colors.pink,
-    const Color.fromARGB(255, 255, 59, 239),
-    Colors.yellow,
-    Colors.blue,
-    const Color.fromARGB(255, 79, 59, 255),
-    Colors.green,
-    Colors.cyan,
-    Colors.black,
-  ];
+
   ProductDetails({
     super.key,
     required this.appBarTitle,
@@ -65,35 +59,7 @@ class _NameOfProductState extends State<ProductDetails> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              //change slider for this view
-              CarouselSlider(
-                options: CarouselOptions(
-                  height: 200,
-                  aspectRatio: 16 / 9,
-                  viewportFraction: 0.8,
-                  autoPlay: true,
-                  autoPlayInterval: const Duration(seconds: 3),
-                  autoPlayAnimationDuration: const Duration(milliseconds: 800),
-                  enlargeFactor: 0.3,
-                  scrollDirection: Axis.horizontal,
-                ),
-
-                /// first way
-                items: List.generate(
-                  widget.listOfproductImage.length,
-                  (index) {
-                    return Builder(builder: (BuildContext context) {
-                      return Container(
-                        color: greyColor,
-                        width: MediaQuery.of(context).size.width,
-                        margin: const EdgeInsets.symmetric(horizontal: 5.0),
-                        child: Image.network(widget.listOfproductImage[index]),
-                      );
-                    });
-                  },
-                ),
-              ),
-
+              carouselSliderProduct(widget.listOfproductImage),
               hSizedBox,
               hSizedBox,
               Row(
@@ -128,65 +94,25 @@ class _NameOfProductState extends State<ProductDetails> {
                 '${widget.productPrice} \$',
                 style: vboldColorTextStyle,
               ),
-
               hSizedBox,
               Text(
                 'Select Size ',
                 style: boldTextStyle,
               ),
               hsSizedBox,
-              //move this widget outsize the file SRP
-              SizedBox(
-                height: 60,
-                child: ListView.separated(
-                    scrollDirection: Axis.horizontal,
-                    itemCount: widget.listOfSizes.length,
-                    separatorBuilder: (BuildContext context, int index) {
-                      return const SizedBox(
-                        width: 8,
-                      );
-                    },
-                    itemBuilder: (BuildContext context, int index) {
-                      return InkWell(
-                        onTap: () {},
-                        child: CircleAvatar(
-                          radius: 28,
-                          child: Text('${widget.listOfSizes[index]}',
-                              style: boldTextStyle),
-                        ),
-                      );
-                    }),
-              ),
+              buildSelectSize(),
               hSizedBox,
-
               Text(
                 'Select Colors ',
                 style: boldTextStyle,
               ),
               hSizedBox,
-              //move this widget outsize the file SRP
-              SizedBox(
-                height: 60,
-                child: ListView.separated(
-                  scrollDirection: Axis.horizontal,
-                  itemCount: widget.listOfColors.length,
-                  separatorBuilder: (BuildContext context, int index) {
-                    return const SizedBox(
-                      width: 8,
-                    );
-                  },
-                  itemBuilder: (BuildContext context, int index) {
-                    return CircleAvatar(
-                      radius: 28,
-                      backgroundColor: widget.listOfColors[index],
-                    );
-                  },
-                ),
-              ),
+              selectColorOfProduct(),
               hSizedBox,
               Container(
+                // constraints: BoxConstraints(maxHeight: ) ,
                 padding: const EdgeInsets.all(6),
-                height: 400, color: greyColor,
+                color: greyColor,
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
@@ -194,40 +120,46 @@ class _NameOfProductState extends State<ProductDetails> {
                       'Specification',
                       style: vboldTextStyle,
                     ),
-                    Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
+                    Stack(
+                      alignment: AlignmentDirectional.bottomCenter,
                       children: [
-                        Text(
-                          widget.description,
-                          textDirection: TextDirection.rtl,
-                          style: boldTextStyle,
-                          overflow: TextOverflow.ellipsis,
+                        Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Text(
+                              widget.description,
+                              textDirection: TextDirection.rtl,
+                              style: boldTextStyle,
+                              // overflow: TextOverflow.ellipsis,
+                            ),
+                            hsSizedBox,
+                            //add to cart button
+                            Row(
+                              children: [
+                                Expanded(
+                                  child: buildElevated(
+                                      onPressFunction: () {
+                                        navigate(
+                                          context,
+                                          CartView(
+                                            nameOfProduct: widget.appBarTitle,
+                                            priceOfProduct: widget.productPrice,
+                                            imageOfProduct:
+                                                widget.listOfproductImage[0],
+                                          ),
+                                        );
+                                      },
+                                      isnotRow: true,
+                                      text: 'Add to cart'),
+                                ),
+                              ],
+                            ),
+                          ],
                         ),
-                        hsSizedBox,
                       ],
-                    )
+                    ),
                   ],
                 ),
-
-                //  Row(
-                //   mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                //   children: [Text('Style:'), Text('cd113_44997')],
-                // ),
-
-                //product review
-                // Container(
-                //   height: 343,
-                //   width: 343,
-                //   color: Colors.white38,
-                //   child: const Column(
-                //     children: [
-                //       Row(
-                //         mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                //         children: [Text('Review Product')],
-                //       ),
-                //     ],
-                //   ),
-                // ),
               ),
             ],
           ),
