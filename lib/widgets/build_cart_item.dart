@@ -4,6 +4,7 @@ import 'package:e_commerce_app/shared/constant.dart';
 import 'package:flutter/material.dart';
 
 Widget buildCartItem(nameOfProduct, priceOfProduct, imageOfProduct, context) {
+  bool pressed = false;
   return Container(
     decoration: BoxDecoration(
       border: Border.all(
@@ -42,7 +43,10 @@ Widget buildCartItem(nameOfProduct, priceOfProduct, imageOfProduct, context) {
                 ),
                 wSizedBox,
                 IconButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    // pressed = true;
+                    // setState(){}
+                  },
                   icon: const Icon(
                     Icons.favorite,
                     size: 29,

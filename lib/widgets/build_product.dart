@@ -1,6 +1,7 @@
 import 'package:e_commerce_app/model/date_model.dart';
 import 'package:e_commerce_app/shared/constant.dart';
-import 'package:e_commerce_app/views/name_of_product.dart';
+import 'package:e_commerce_app/views/details_product.dart';
+
 import 'package:flutter/material.dart';
 
 //get product apis
