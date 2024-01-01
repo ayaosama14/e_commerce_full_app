@@ -9,6 +9,7 @@ import 'package:e_commerce_app/widgets/carouselslider_product_details.dart';
 import 'package:e_commerce_app/widgets/custom_button.dart';
 
 import 'package:flutter/material.dart';
+import 'package:readmore/readmore.dart';
 
 // ignore: must_be_immutable
 class ProductDetails extends StatefulWidget {
@@ -19,6 +20,7 @@ class ProductDetails extends StatefulWidget {
   String description;
   bool inFavorites;
   bool inCart;
+  var objFromModel;
 
   ProductDetails({
     super.key,
@@ -28,6 +30,7 @@ class ProductDetails extends StatefulWidget {
     required this.description,
     required this.inFavorites,
     required this.inCart,
+     required this.objFromModel
   });
 
   @override
@@ -51,6 +54,24 @@ class _NameOfProductState extends State<ProductDetails> {
           hsSizedBox,
           const Icon(Icons.list),
           hsSizedBox,
+        ],
+      ),
+      bottomNavigationBar: Row(
+        children: [
+          Expanded(
+            child: buildElevated(
+                onPressFunction: () {
+                  CartView.addProduct(widget.objFromModel);
+                  navigate(
+                    context,
+                    CartView(
+                     
+                    ),
+                  );
+                },
+                isnotRow: true,
+                text: 'Add to cart'),
+          ),
         ],
       ),
       body: SingleChildScrollView(
@@ -120,42 +141,32 @@ class _NameOfProductState extends State<ProductDetails> {
                       'Specification',
                       style: vboldTextStyle,
                     ),
-                    Stack(
-                      alignment: AlignmentDirectional.bottomCenter,
+                    Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Text(
-                              widget.description,
-                              textDirection: TextDirection.rtl,
-                              style: boldTextStyle,
-                              // overflow: TextOverflow.ellipsis,
-                            ),
-                            hsSizedBox,
-                            //add to cart button
-                            Row(
-                              children: [
-                                Expanded(
-                                  child: buildElevated(
-                                      onPressFunction: () {
-                                        navigate(
-                                          context,
-                                          CartView(
-                                            nameOfProduct: widget.appBarTitle,
-                                            priceOfProduct: widget.productPrice,
-                                            imageOfProduct:
-                                                widget.listOfproductImage[0],
-                                          ),
-                                        );
-                                      },
-                                      isnotRow: true,
-                                      text: 'Add to cart'),
-                                ),
-                              ],
-                            ),
-                          ],
+                        ReadMoreText(
+                          widget.description,
+                          trimLines: 2,
+                          textDirection: TextDirection.rtl,
+                          style: boldTextStyle,
+                          colorClickableText: Colors.pink,
+                          trimMode: TrimMode.Length,
+                          trimCollapsedText: ' Show more',
+                          trimExpandedText: ' Show less',
+                          moreStyle: const TextStyle(
+                            fontSize: 18,
+                            fontWeight: FontWeight.bold,
+                            color: Colors.pink,
+                          ),
                         ),
+                        // Text(
+                        //   widget.description,
+                        //   textDirection: TextDirection.rtl,
+                        //   style: boldTextStyle,
+                        //   maxLines: 2,
+                        //   overflow: TextOverflow.ellipsis,
+                        // ),
+                        hsSizedBox,
                       ],
                     ),
                   ],

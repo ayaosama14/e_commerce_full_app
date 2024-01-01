@@ -1,9 +1,8 @@
 import 'package:e_commerce_app/shared/constant.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 buildSelectSize() {
-    List listOfSizes = [5, 6.5, 7, 7.5, 8, 8.5, 9, 9.5, 10, 11];
+  List listOfSizes = [5, 6.5, 7, 7.5, 8, 8.5, 9, 9.5, 10, 11];
   return SizedBox(
     height: 60,
     child: ListView.separated(

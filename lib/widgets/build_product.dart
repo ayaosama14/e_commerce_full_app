@@ -24,7 +24,7 @@ buildGridCatogory(BuildContext context, CatogeryDataModel model) {
           childAspectRatio: MediaQuery.of(context).size.width /
               (MediaQuery.of(context).size.height / 1.5),
         ),
-        itemCount: listOfCatogeryData == null ? 18 : listOfCatogeryData!.length,
+        itemCount: listOfCatogeryData == null ? 12 : listOfCatogeryData!.length,
         itemBuilder: (BuildContext _, int index) {
           listOfCatogeryData = model.data.data as List<Datum>?;
 
@@ -46,6 +46,7 @@ buildOneProductItem(Datum? oneDatumItem, context) {
               description: oneDatumItem.description,
               inFavorites: oneDatumItem.inFavorites,
               inCart: oneDatumItem.inCart,
+              objFromModel: oneDatumItem
             );
           },
         ),
