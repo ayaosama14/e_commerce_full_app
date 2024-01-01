@@ -1,3 +1,4 @@
+import 'package:e_commerce_app/Login_featcher/presentation/view/login_view.dart';
 import 'package:e_commerce_app/scr/config/routes/routes.dart';
 import 'package:e_commerce_app/scr/config/themes/app_theme.dart';
 import 'package:e_commerce_app/scr/core/utilits/app_strings.dart';
@@ -15,7 +16,7 @@ class MyApp extends StatelessWidget {
       title: AppStrings.projectName,
       theme: apptheme(),
       routes: Routes.routes,
-      home:  HomeView(productId: 40,),
+      home: const LoginView(),
     );
   }
 }
