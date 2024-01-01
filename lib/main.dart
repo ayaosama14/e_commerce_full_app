@@ -1,5 +1,6 @@
 import 'package:e_commerce_app/cubit/change_password/change_password_cubit.dart';
 import 'package:e_commerce_app/cubit/counter_cart/cubit_counter_cart.dart';
+import 'package:e_commerce_app/cubit/get_cart/cubit_post_data.dart';
 import 'package:e_commerce_app/cubit/get_catogery/cubit_get_catogery.dart';
 import 'package:e_commerce_app/cubit/get_home/get_home_cubit.dart';
 import 'package:e_commerce_app/cubit/login/login_cubit.dart';
@@ -31,6 +32,9 @@ void main() {
       ),
       BlocProvider(
         create: (BuildContext context) => CounterCartCubit(),
+      ),
+      BlocProvider(
+        create: (BuildContext context) => CartCubit(),
       )
     ], child: const MyApp()),
   );

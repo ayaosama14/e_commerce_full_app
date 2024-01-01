@@ -1,5 +1,7 @@
 import 'dart:core';
 
+import 'package:e_commerce_app/cubit/get_cart/cubit_post_data.dart';
+import 'package:e_commerce_app/network/dio_helper.dart';
 import 'package:e_commerce_app/shared/constant.dart';
 import 'package:e_commerce_app/shared/navigator.dart';
 import 'package:e_commerce_app/views/cart_view.dart';
@@ -21,17 +23,18 @@ class ProductDetails extends StatefulWidget {
   bool inFavorites;
   bool inCart;
   var objFromModel;
+  int productId;
 
-  ProductDetails({
-    super.key,
-    required this.appBarTitle,
-    required this.productPrice,
-    required this.listOfproductImage,
-    required this.description,
-    required this.inFavorites,
-    required this.inCart,
-     required this.objFromModel
-  });
+  ProductDetails(
+      {super.key,
+      required this.appBarTitle,
+      required this.productPrice,
+      required this.listOfproductImage,
+      required this.description,
+      required this.inFavorites,
+      required this.inCart,
+      required this.objFromModel,
+      required this.productId});
 
   @override
   State<ProductDetails> createState() => _NameOfProductState();
@@ -61,12 +64,9 @@ class _NameOfProductState extends State<ProductDetails> {
           Expanded(
             child: buildElevated(
                 onPressFunction: () {
-                  CartView.addProduct(widget.objFromModel);
                   navigate(
                     context,
-                    CartView(
-                     
-                    ),
+                     CartView(productId:widget.productId),
                   );
                 },
                 isnotRow: true,

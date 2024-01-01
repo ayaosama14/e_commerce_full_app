@@ -1,4 +1,5 @@
 import 'package:dio/dio.dart';
+import 'package:e_commerce_app/model/cart_data_model.dart';
 import 'package:e_commerce_app/model/date_model.dart';
 
 class DioEcommerce {
@@ -39,5 +40,26 @@ class DioEcommerce {
     return CatogeryDataModel.fromJson(response?.data);
 
     // return response;
+  }
+
+  static Future<CartModel> postDataToCart(int productId) async {
+    var token =
+        'hNmhyE8y1bxeLleWTiJK7sBxEE7FszONugbCuqu3mojGUiIBZEIvnpMjmuO1mtirlSQfyo';
+    response = await objectdio!.post(
+      'https://student.valuxapps.com/api/carts',
+      data: {
+        "product_id": productId,
+      },
+      options: Options(
+        headers: {
+          'Content-Type': 'application/json',
+          'Authorization': 'Bearer $token',
+          
+        },
+      ),
+    );
+    print('postDataToCart is : $response');
+    CartModel.fromJson(response!.data["data"]);
+    return CartModel.fromJson(response!.data["data"]);
   }
 }

@@ -46,7 +46,8 @@ buildOneProductItem(Datum? oneDatumItem, context) {
               description: oneDatumItem.description,
               inFavorites: oneDatumItem.inFavorites,
               inCart: oneDatumItem.inCart,
-              objFromModel: oneDatumItem
+              objFromModel: oneDatumItem,
+              productId: oneDatumItem.id
             );
           },
         ),
