@@ -1,10 +1,7 @@
-import 'package:e_commerce_app/cubit/change_password/chane_pass_states.dart';
 import 'package:e_commerce_app/cubit/counter_cart/cubit_counter_cart.dart';
 import 'package:e_commerce_app/cubit/counter_cart/states_counter_cart.dart';
 import 'package:e_commerce_app/cubit/get_cart/cubit_post_data.dart';
 import 'package:e_commerce_app/cubit/get_cart/state_get_data.dart';
-import 'package:e_commerce_app/model/date_model.dart';
-import 'package:e_commerce_app/widgets/build_cart_item.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 

@@ -1,6 +1,7 @@
 import 'package:dio/dio.dart';
-import 'package:e_commerce_app/cubit/register/register_state.dart';
+
 import 'package:e_commerce_app/network/dio_helper.dart';
+import 'package:e_commerce_app/register_featcher/domain/cubit/register_states.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 class RegisterCubit extends Cubit<RegisterStates> {

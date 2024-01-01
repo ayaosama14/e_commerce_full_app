@@ -4,10 +4,9 @@ import 'package:e_commerce_app/cubit/counter_cart/cubit_counter_cart.dart';
 import 'package:e_commerce_app/cubit/get_cart/cubit_post_data.dart';
 import 'package:e_commerce_app/cubit/get_catogery/cubit_get_catogery.dart';
 import 'package:e_commerce_app/cubit/get_home/get_home_cubit.dart';
-import 'package:e_commerce_app/cubit/login/login_cubit.dart';
-import 'package:e_commerce_app/cubit/register/register_cubit.dart';
 
 import 'package:e_commerce_app/network/dio_helper.dart';
+import 'package:e_commerce_app/register_featcher/domain/cubit/register_cubit.dart';
 import 'package:e_commerce_app/views/my_app.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';

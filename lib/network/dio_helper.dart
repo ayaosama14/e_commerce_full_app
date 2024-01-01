@@ -21,13 +21,15 @@ class DioEcommerce {
   //post login
   static Future<Response?> postRegisterData(
       String name, String phone, String email, String password) async {
-    response = (await objectdio!
-        .post('https://student.valuxapps.com/api/register', data: {
-      "name": name,
-      "phone": phone,
-      "email": email,
-      "password": password
-    }));
+    response = (await objectdio!.post(
+      'https://student.valuxapps.com/api/register',
+      data: {
+        "name": name,
+        "phone": phone,
+        "email": email,
+        "password": password
+      },
+    ));
     // print('response is $response');
     return response;
   }
@@ -54,7 +56,6 @@ class DioEcommerce {
         headers: {
           'Content-Type': 'application/json',
           'Authorization': 'Bearer $token',
-          
         },
       ),
     );

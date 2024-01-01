@@ -1,8 +1,8 @@
-import 'package:e_commerce_app/cubit/register/register_cubit.dart';
+import 'package:e_commerce_app/register_featcher/domain/cubit/register_cubit.dart';
 import 'package:e_commerce_app/shared/constant.dart';
 import 'package:flutter/material.dart';
 
-snackerBar({
+buildSnackerBar({
   required BuildContext context,
   required Color backgroundColor,
 }) {

@@ -2,12 +2,13 @@ import 'package:e_commerce_app/Login_featcher/domain/cubit/login_cubit.dart';
 import 'package:e_commerce_app/Login_featcher/domain/cubit/login_states.dart';
 import 'package:e_commerce_app/Login_featcher/presentation/helper_mehods/build_elevated_button.dart';
 import 'package:e_commerce_app/cubit/change_password/change_password_cubit.dart';
+import 'package:e_commerce_app/register_featcher/presentation/helper_methods/build_snackbar.dart';
+import 'package:e_commerce_app/register_featcher/presentation/view/registerView.dart';
+import 'package:e_commerce_app/register_featcher/presentation/widgets/custom_text_field.dart';
 import 'package:e_commerce_app/shared/constant.dart';
 import 'package:e_commerce_app/shared/navigator.dart';
 import 'package:e_commerce_app/views/home_view.dart';
 
-import 'package:e_commerce_app/widgets/custom_text_field.dart';
-import 'package:e_commerce_app/widgets/snack_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -127,14 +128,14 @@ class _LoginViewState extends State<LoginView> {
                                     message = LoginCubit.get(context)
                                         .responseloginValue!
                                         .data["message"];
-                                    snackerBar(
+                                    buildSnackerBar(
                                         context: context,
                                         backgroundColor: Colors.redAccent);
                                   } else {
                                     message = LoginCubit.get(context)
                                         .responseloginValue!
                                         .data["message"];
-                                    snackerBar(
+                                    buildSnackerBar(
                                         context: context,
                                         backgroundColor: Colors.greenAccent);
 
@@ -212,7 +213,7 @@ class _LoginViewState extends State<LoginView> {
                     InkWell(
                       onTap: () {},
                       child: Text(
-                        'ForgetPassword? ',
+                        'ForgetPassword ? ',
                         style: boldColorTextStyle,
                       ),
                     ),
@@ -221,13 +222,15 @@ class _LoginViewState extends State<LoginView> {
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
                         Text(
-                          'Don\'t have account?',
+                          'Don\'t have account? ',
                           style: thinTextStyle,
                         ),
                         InkWell(
-                          onTap: () {},
+                          onTap: () {
+                            navigate(context, const RegisterView());
+                          },
                           child: Text(
-                            'Register',
+                            ' Register',
                             style: boldColorTextStyle,
                           ),
                         ),

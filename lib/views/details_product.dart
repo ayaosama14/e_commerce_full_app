@@ -1,15 +1,12 @@
 import 'dart:core';
 
 import 'package:e_commerce_app/Login_featcher/presentation/helper_mehods/build_elevated_button.dart';
-import 'package:e_commerce_app/cubit/get_cart/cubit_post_data.dart';
-import 'package:e_commerce_app/network/dio_helper.dart';
 import 'package:e_commerce_app/shared/constant.dart';
 import 'package:e_commerce_app/shared/navigator.dart';
 import 'package:e_commerce_app/views/cart_view.dart';
 import 'package:e_commerce_app/widgets/build_color__of_product.dart';
 import 'package:e_commerce_app/widgets/build_size_of_product.dart';
 import 'package:e_commerce_app/widgets/carouselslider_product_details.dart';
-import 'package:e_commerce_app/widgets/custom_button.dart';
 
 import 'package:flutter/material.dart';
 import 'package:readmore/readmore.dart';

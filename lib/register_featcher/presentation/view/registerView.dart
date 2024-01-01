@@ -1,12 +1,13 @@
 import 'package:e_commerce_app/Login_featcher/presentation/helper_mehods/build_elevated_button.dart';
-import 'package:e_commerce_app/cubit/register/register_cubit.dart';
-import 'package:e_commerce_app/cubit/register/register_state.dart';
+import 'package:e_commerce_app/Login_featcher/presentation/view/login_view.dart';
+import 'package:e_commerce_app/register_featcher/domain/cubit/register_cubit.dart';
+import 'package:e_commerce_app/register_featcher/domain/cubit/register_states.dart';
+import 'package:e_commerce_app/register_featcher/presentation/helper_methods/build_snackbar.dart';
+import 'package:e_commerce_app/register_featcher/presentation/widgets/custom_text_field.dart';
 import 'package:e_commerce_app/shared/constant.dart';
 import 'package:e_commerce_app/shared/navigator.dart';
 import 'package:e_commerce_app/views/home_view.dart';
-import 'package:e_commerce_app/widgets/custom_button.dart';
-import 'package:e_commerce_app/widgets/custom_text_field.dart';
-import 'package:e_commerce_app/widgets/snack_bar.dart';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -138,7 +139,7 @@ class _RegisterViewState extends State<RegisterView> {
                                         .responseRegisterValue!
                                         .data["status"] ==
                                     true) {
-                                  snackerBar(
+                                  buildSnackerBar(
                                       context: context,
                                       backgroundColor: Colors.greenAccent);
                                   navigate(
@@ -147,7 +148,7 @@ class _RegisterViewState extends State<RegisterView> {
                                         productId: 40,
                                       ));
                                 } else {
-                                  snackerBar(
+                                  buildSnackerBar(
                                       context: context,
                                       backgroundColor: Colors.redAccent);
                                 }
@@ -165,7 +166,9 @@ class _RegisterViewState extends State<RegisterView> {
                             style: thinTextStyle,
                           ),
                           InkWell(
-                            onTap: () {},
+                            onTap: () {
+                              navigate(context, const LoginView());
+                            },
                             child: Text(
                               'Sign in',
                               style: boldColorTextStyle,
