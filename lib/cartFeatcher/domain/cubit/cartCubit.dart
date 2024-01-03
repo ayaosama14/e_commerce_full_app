@@ -1,6 +1,7 @@
-import 'package:e_commerce_app/cubit/get_cart/state_get_data.dart';
+import 'package:e_commerce_app/cartFeatcher/domain/cubit/cartStates.dart';
+
 import 'package:e_commerce_app/model/cart_data_model.dart';
-import 'package:e_commerce_app/network/dio_helper.dart';
+import 'package:e_commerce_app/NetworkService/dio_helper.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 class CartCubit extends Cubit<CartStates> {

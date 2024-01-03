@@ -2,7 +2,7 @@ import 'dart:io';
 
 import 'package:e_commerce_app/cubit/get_catogery/cubit_get_catogery_state.dart';
 
-import 'package:e_commerce_app/network/dio_helper.dart';
+import 'package:e_commerce_app/NetworkService/dio_helper.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 class GetCatogeryCubit extends Cubit<GetCatogeryState> {

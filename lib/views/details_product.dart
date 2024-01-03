@@ -1,9 +1,10 @@
 import 'dart:core';
 
 import 'package:e_commerce_app/Login_featcher/presentation/helper_mehods/build_elevated_button.dart';
+import 'package:e_commerce_app/cartFeatcher/presentation/views/cartView.dart';
 import 'package:e_commerce_app/shared/constant.dart';
 import 'package:e_commerce_app/shared/navigator.dart';
-import 'package:e_commerce_app/views/cart_view.dart';
+
 import 'package:e_commerce_app/widgets/build_color__of_product.dart';
 import 'package:e_commerce_app/widgets/build_size_of_product.dart';
 import 'package:e_commerce_app/widgets/carouselslider_product_details.dart';
@@ -64,7 +65,7 @@ class _NameOfProductState extends State<ProductDetails> {
                 onPressFunction: () {
                   navigate(
                     context,
-                     CartView(productId:widget.productId),
+                    CartView(productId: widget.productId),
                   );
                 },
                 isnotRow: true,

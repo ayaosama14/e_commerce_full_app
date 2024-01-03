@@ -1,7 +1,7 @@
 import 'package:dio/dio.dart';
 import 'package:e_commerce_app/Login_featcher/data/shared_pre.dart';
 import 'package:e_commerce_app/Login_featcher/domain/cubit/login_states.dart';
-import 'package:e_commerce_app/network/dio_helper.dart';
+import 'package:e_commerce_app/NetworkService/dio_helper.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 class LoginCubit extends Cubit<LoginStates> {
