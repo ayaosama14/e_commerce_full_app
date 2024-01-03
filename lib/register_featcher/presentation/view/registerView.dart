@@ -1,12 +1,13 @@
 import 'package:e_commerce_app/Login_featcher/presentation/helper_mehods/build_elevated_button.dart';
 import 'package:e_commerce_app/Login_featcher/presentation/view/login_view.dart';
+import 'package:e_commerce_app/home_featcher/presentation/views/home_view.dart';
 import 'package:e_commerce_app/register_featcher/domain/cubit/register_cubit.dart';
 import 'package:e_commerce_app/register_featcher/domain/cubit/register_states.dart';
 import 'package:e_commerce_app/register_featcher/presentation/helper_methods/build_snackbar.dart';
 import 'package:e_commerce_app/register_featcher/presentation/widgets/custom_text_field.dart';
 import 'package:e_commerce_app/shared/constant.dart';
 import 'package:e_commerce_app/shared/navigator.dart';
-import 'package:e_commerce_app/views/home_view.dart';
+
 
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';

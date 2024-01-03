@@ -5,9 +5,9 @@ import 'package:e_commerce_app/cubit/change_password/change_password_cubit.dart'
 import 'package:e_commerce_app/cubit/counter_cart/cubit_counter_cart.dart';
 
 import 'package:e_commerce_app/cubit/get_catogery/cubit_get_catogery.dart';
-import 'package:e_commerce_app/cubit/get_home/get_home_cubit.dart';
 
 import 'package:e_commerce_app/NetworkService/dio_helper.dart';
+import 'package:e_commerce_app/home_featcher/domain/cubit/banner/bannerCubit.dart';
 import 'package:e_commerce_app/register_featcher/domain/cubit/register_cubit.dart';
 import 'package:e_commerce_app/views/my_app.dart';
 import 'package:flutter/material.dart';
@@ -31,7 +31,7 @@ void main() async {
         create: (BuildContext context) => RegisterCubit(),
       ),
       BlocProvider(
-        create: (BuildContext context) => GetHomeCubit(),
+        create: (BuildContext context) => GetHomeCubitBanner(),
       ),
       BlocProvider(
         create: (BuildContext context) => CounterCartCubit(),

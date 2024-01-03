@@ -1,12 +1,13 @@
 import 'package:dio/dio.dart';
-import 'package:e_commerce_app/cubit/get_home/get_home_states.dart';
+
 import 'package:e_commerce_app/data/home_repo.dart';
+import 'package:e_commerce_app/home_featcher/domain/cubit/banner/bannerStates.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-class GetHomeCubit extends Cubit<GetHomeStates> {
-  GetHomeCubit() : super(InitState());
+class GetHomeCubitBanner extends Cubit<GetHomeBannerStates> {
+  GetHomeCubitBanner() : super(InitState());
   List? banner;
-  static GetHomeCubit get(context) => BlocProvider.of(context);
+  static GetHomeCubitBanner get(context) => BlocProvider.of(context);
   Future getHomeData() async {
     emit(LoadingState());
     Response? response = await HomeRepo.getHomeData();
