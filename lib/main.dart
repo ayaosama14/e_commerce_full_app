@@ -1,3 +1,4 @@
+import 'package:e_commerce_app/Login_featcher/data/shared_pre.dart';
 import 'package:e_commerce_app/Login_featcher/domain/cubit/login_cubit.dart';
 import 'package:e_commerce_app/cubit/change_password/change_password_cubit.dart';
 import 'package:e_commerce_app/cubit/counter_cart/cubit_counter_cart.dart';
@@ -13,6 +14,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 
 void main() {
   DioEcommerce.init();
+  SharedPref.initShared();
   runApp(
     MultiBlocProvider(providers: [
       BlocProvider(
