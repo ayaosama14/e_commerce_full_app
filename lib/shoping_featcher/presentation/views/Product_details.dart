@@ -1,14 +1,10 @@
-import 'dart:core';
-
 import 'package:e_commerce_app/Login_featcher/presentation/helper_mehods/build_elevated_button.dart';
 import 'package:e_commerce_app/cartFeatcher/presentation/views/cartView.dart';
 import 'package:e_commerce_app/shared/constant.dart';
 import 'package:e_commerce_app/shared/navigator.dart';
-
-import 'package:e_commerce_app/widgets/build_color__of_product.dart';
-import 'package:e_commerce_app/widgets/build_size_of_product.dart';
-import 'package:e_commerce_app/widgets/carouselslider_product_details.dart';
-
+import 'package:e_commerce_app/shoping_featcher/presentation/helperMethods/build_select_color.dart';
+import 'package:e_commerce_app/shoping_featcher/presentation/helperMethods/build_size_product.dart';
+import 'package:e_commerce_app/shoping_featcher/presentation/widgets/CustomCarouselSliderProduct.dart';
 import 'package:flutter/material.dart';
 import 'package:readmore/readmore.dart';
 
@@ -79,7 +75,9 @@ class _NameOfProductState extends State<ProductDetails> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              carouselSliderProduct(widget.listOfproductImage),
+              CustomCarouselSliderProduct(
+                listOfproductImage: widget.listOfproductImage,
+              ),
               hSizedBox,
               hSizedBox,
               Row(

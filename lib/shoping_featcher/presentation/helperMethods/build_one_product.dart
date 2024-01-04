@@ -1,6 +1,6 @@
 import 'package:e_commerce_app/model/date_model.dart';
 import 'package:e_commerce_app/shared/constant.dart';
-import 'package:e_commerce_app/views/details_product.dart';
+import 'package:e_commerce_app/shoping_featcher/presentation/views/Product_details.dart';
 import 'package:flutter/material.dart';
 
 buildOneProductItem(Datum? oneDatumItem, context) {
