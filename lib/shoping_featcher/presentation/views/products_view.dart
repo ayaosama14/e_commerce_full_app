@@ -1,21 +1,20 @@
-import 'package:e_commerce_app/cubit/get_catogery/cubit_get_catogery.dart';
-import 'package:e_commerce_app/cubit/get_catogery/cubit_get_catogery_state.dart';
 import 'package:e_commerce_app/model/date_model.dart';
-
-import 'package:e_commerce_app/widgets/build_product.dart';
+import 'package:e_commerce_app/shoping_featcher/domain/cubit/catogery/catogeryCubit.dart';
+import 'package:e_commerce_app/shoping_featcher/domain/cubit/catogery/catogeryStates.dart';
+import 'package:e_commerce_app/shoping_featcher/presentation/widgets/gridViewProducts.dart';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-class OneProductView extends StatefulWidget {
+class ProductsView extends StatefulWidget {
   final int index;
-  const OneProductView({super.key, required this.index});
+  const ProductsView({super.key, required this.index});
 
   @override
-  State<OneProductView> createState() => _OneProductViewState();
+  State<ProductsView> createState() => _OneProductViewState();
 }
 
-class _OneProductViewState extends State<OneProductView> {
+class _OneProductViewState extends State<ProductsView> {
   @override
   void initState() {
     super.initState();
@@ -30,7 +29,9 @@ class _OneProductViewState extends State<OneProductView> {
           CatogeryDataModel objModel = state.model;
           return SafeArea(
             child: Scaffold(
-              appBar: AppBar(title: const Text('favourte product')),
+              appBar: AppBar(
+                title: const Text('favourte product'),
+              ),
               body: SingleChildScrollView(
                 // scrollDirection: Axis.vertical,
                 child: Padding(
@@ -38,7 +39,9 @@ class _OneProductViewState extends State<OneProductView> {
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      buildGridCatogory(context, objModel),
+                      GridViewOfAllProducts(
+                        model: objModel,
+                      ),
                     ],
                   ),
                 ),

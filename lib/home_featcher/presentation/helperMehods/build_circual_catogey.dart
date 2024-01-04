@@ -1,7 +1,8 @@
 import 'package:e_commerce_app/scr/core/utilits/assets_manger.dart';
 import 'package:e_commerce_app/shared/constant.dart';
 import 'package:e_commerce_app/shared/navigator.dart';
-import 'package:e_commerce_app/views/one_product_view.dart';
+import 'package:e_commerce_app/shoping_featcher/presentation/views/products_view.dart';
+
 import 'package:flutter/material.dart';
 
 buildCirculaCatogory() {
@@ -36,7 +37,7 @@ buildCirculaCatogory() {
 
                   navigate(
                     context,
-                    OneProductView(index: index),
+                    ProductsView(index: index),
                   );
                 },
                 child: CircleAvatar(

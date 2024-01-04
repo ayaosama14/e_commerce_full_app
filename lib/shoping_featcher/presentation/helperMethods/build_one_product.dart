@@ -1,37 +1,7 @@
 import 'package:e_commerce_app/model/date_model.dart';
 import 'package:e_commerce_app/shared/constant.dart';
 import 'package:e_commerce_app/views/details_product.dart';
-
 import 'package:flutter/material.dart';
-
-//get product apis
-
-List<Datum>? listOfCatogeryData;
-Datum? oneDatumItem;
-
-buildGridCatogory(BuildContext context, CatogeryDataModel model) {
-  return SizedBox(
-    // height: MediaQuery.of(context).size.height,
-    child: GridView.builder(
-        // physics: const NeverScrollableScrollPhysics(),
-        scrollDirection: Axis.vertical,
-        shrinkWrap: true,
-        gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-          crossAxisCount: 2, // number of items in each row
-          mainAxisSpacing: 7, // spacing between rows
-          crossAxisSpacing: 6,
-          // spacing between columns
-          childAspectRatio: MediaQuery.of(context).size.width /
-              (MediaQuery.of(context).size.height / 1.5),
-        ),
-        itemCount: listOfCatogeryData == null ? 12 : listOfCatogeryData!.length,
-        itemBuilder: (BuildContext _, int index) {
-          listOfCatogeryData = model.data.data as List<Datum>?;
-
-          return buildOneProductItem(listOfCatogeryData![index], context);
-        }),
-  );
-}
 
 buildOneProductItem(Datum? oneDatumItem, context) {
   return InkWell(
@@ -40,15 +10,14 @@ buildOneProductItem(Datum? oneDatumItem, context) {
         MaterialPageRoute(
           builder: (BuildContext context) {
             return ProductDetails(
-              appBarTitle: oneDatumItem.name,
-              productPrice: oneDatumItem.price,
-              listOfproductImage: oneDatumItem.images,
-              description: oneDatumItem.description,
-              inFavorites: oneDatumItem.inFavorites,
-              inCart: oneDatumItem.inCart,
-              objFromModel: oneDatumItem,
-              productId: oneDatumItem.id
-            );
+                appBarTitle: oneDatumItem.name,
+                productPrice: oneDatumItem.price,
+                listOfproductImage: oneDatumItem.images,
+                description: oneDatumItem.description,
+                inFavorites: oneDatumItem.inFavorites,
+                inCart: oneDatumItem.inCart,
+                objFromModel: oneDatumItem,
+                productId: oneDatumItem.id);
           },
         ),
       );
