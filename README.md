@@ -1,17 +1,21 @@
-# test_e_commerce
+# E-Commerce App
 
-A new Flutter project.
+Welcome to the E-Commerce App built with Flutter! This application provides a seamless shopping experience, allowing users to browse products, add them to their cart, and make purchases effortlessly.
 
-## Getting Started
+## Features
 
-This project is a starting point for a Flutter application.
+- **User Authentication**: Secure login and registration using Firebase.
+- **Product Browsing**: View a variety of products with detailed descriptions and images.
+- **Shopping Cart**: Add, remove, and update items in the cart.
+- **Checkout Process**: Simple and secure checkout with payment integration.
+- **Order History**: View past orders and track current orders.
+- **Responsive Design**: Optimized for both mobile and tablet screens.
+- **Push Notifications**: Stay updated with the latest offers and order statuses.
 
-A few resources to get you started if this is your first Flutter project:
+## Technologies Used
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
-"# E_commerce" 
+- **Flutter**: A UI toolkit for building natively compiled applications.
+- **back end service**: For authentication, database, and hosting.
+- **cubit**: State management solution for Flutter.
+- **MVVM**: App Arch how layer contact with each other.
+- **Dart**: The programming language used to write the app.
